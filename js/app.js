@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+//Each object in the array must conform to the Movie interface.
 function GetAllMovies() {
     return [
         {
@@ -50,15 +51,39 @@ function GetReview(title) {
     }
 }
 // Print movie info
-function PrintMovieInfo(title, yearReleased, ...cast) {
-    console.log(`Title: ${title}`);
-    console.log(`Year Released: ${yearReleased}`);
-    console.log(`Cast:`);
-    for (const name of cast) {
-        console.log(`   ${name}`);
-    }
+function PrintMovieInfo(movie) {
+    console.log(`Title: ${movie.title}`);
+    console.log(`Year Released: ${movie.yearReleased}`);
+    console.log(`Director: ${movie.director}`);
 }
-PrintMovieInfo("A New Hope", 1977, "Carrie", "Mark", "Harrison");
+let myMovie = {
+    title: "Rogue One",
+    director: "Gareth Edwards",
+    yearReleased: 2016,
+    streaming: true,
+    length: 133,
+    logReview: (review) => console.log(`Review: ${review}`),
+};
+class Performer {
+    name = "";
+    email = "";
+    role = "";
+    rehearse = (sceneNumber) => {
+        console.log(`${this.name} is rehearsing scene ${sceneNumber}.`);
+    };
+}
+let favoriteCastMember = new Performer();
+favoriteCastMember.name = "Mark Hamill";
+favoriteCastMember.rehearse(25);
+//This is an example of duck typing. The PrintMovieInfo function only cares about the properties defined in the Movie interface, so it will ignore the extra properties in myMovie.
+//Optional properties example: The length property is optional, so we can create a movie object without it and still conform to the Movie interface.
+// PrintMovieInfo(myMovie);
+// if (myMovie.logReview) {
+//   myMovie.logReview("A masterpiece!");
+// }
+let printReview;
+printReview = (review) => console.log(`Review: ${review}`);
+printReview("An epic space adventure!");
 // Arrow functions
 let squareit = (x) => x * x;
 console.log(squareit(5));
@@ -110,4 +135,25 @@ function ReleaseMessage(year) {
 let releaseFunc;
 releaseFunc = ReleaseMessage;
 let message = releaseFunc(2024);
+console.log(message);
+/*
+//Duck Typing example
+interface Duck {
+  walk: () => void;
+  swim: () => void;
+  quack: () => void;
+}
+
+let probablyADuck = {
+
+  walk: () => console.log('walking like a duck'),
+  swim: () => console.log('swimming like a duck'),
+  quack: () => console.log('quaking like a duck'),
+}
+function FlyOverWater(bird:Duck) {
+  
+}
+
+FlyOverWater(probablyADuck);
+*/
 //# sourceMappingURL=app.js.map
