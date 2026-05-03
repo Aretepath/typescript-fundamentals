@@ -57,7 +57,7 @@ export function PrintMovieInfo(movie: Movie) {
 
 export function GetBookTitles(author: string): string[];
 export function GetBookTitles(available: boolean): string[];
-export function GetBookTitles(bookProperty: any): string[] {
+export function GetBookTitles(bookProperty: string | boolean): string[] {
   if (typeof bookProperty === "string") {
     return ["Book 1", "Book 2", "Book 3"];
   } else if (typeof bookProperty === "boolean") {
