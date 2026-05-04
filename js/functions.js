@@ -76,10 +76,12 @@ export function GetMovieTitles(director, streaming) {
 export function ReleaseMessage(year) {
     return `Year Released: ` + year;
 }
+// Arrow functions - concise function syntax
 export const squareit = (x) => x * x;
 export const adder = (a, b) => a + b;
 export const greeting = () => console.log("Hello, world!");
 export const LogMessage = (message) => console.log(message);
+// Object literal export - grouping related functions
 export const Utility = {
     GetAllMovies,
     GetReview,

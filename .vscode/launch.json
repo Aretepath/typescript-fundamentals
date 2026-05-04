@@ -12,9 +12,9 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${file}",
+            "program": "${workspaceFolder}/js/${fileBasenameNoExtension}.js",
             "outFiles": [
-                "${workspaceFolder}//js//app.js"
+                "${workspaceFolder}/js/*.js"
             ],
             "preLaunchTask": "Compile TypeScript",
             "internalConsoleOptions": "openOnSessionStart"

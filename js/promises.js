@@ -18,14 +18,16 @@ const movieCatalog = [
         streaming: false,
     },
 ];
+// Generic delay function - simulates async operation
 function delay(value, ms) {
     return new Promise((resolve) => {
         setTimeout(() => resolve(value), ms);
     });
 }
+// Async function - uses await to handle promises synchronously
 export async function fetchMovie(title) {
     const movie = movieCatalog.find((item) => item.title === title);
-    const result = await delay(movie, 500);
+    const result = await delay(movie, 500); // Await pauses execution until promise resolves
     if (result) {
         return result;
     }
@@ -38,6 +40,7 @@ export function fetchTitlesByDirector(director) {
 }
 export async function demoPromises() {
     console.log("-- Promise demo starting --");
+    // Promise chaining with then/catch
     fetchMovie("A New Hope")
         .then((movie) => {
         console.log("Found movie with then():", movie.title);
@@ -45,6 +48,7 @@ export async function demoPromises() {
         .catch((error) => {
         console.error("Then/catch error:", error.message);
     });
+    // Async/await with try/catch for error handling
     try {
         const movie = await fetchMovie("The Empire Strikes Back");
         console.log("Found movie with async/await:", movie.title);
@@ -54,6 +58,7 @@ export async function demoPromises() {
             console.error("Async/await error:", error.message);
         }
     }
+    // Promise.all - run multiple promises concurrently
     try {
         const [firstMovie, secondMovie] = await Promise.all([
             fetchMovie("A New Hope"),

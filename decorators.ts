@@ -51,9 +51,13 @@ export class ReviewService {
   }
 
   @methodLogger
-  printReview(@parameterLogger rating: number): void {
+  printReview(rating: number): void {
     console.log(`Review for ${this.uppercaseTitle}: ${rating}/10`);
   }
+
+  // Parameter decorators can cause runtime issues in some environments
+  // Uncomment the next line to see parameter decorator in action:
+  // printReview(@parameterLogger rating: number): void {
 }
 
 export function demoDecorators(): void {
@@ -67,3 +71,7 @@ export function demoDecorators(): void {
 }
 
 void demoDecorators();
+
+// Parameter decorators can cause runtime issues in some environments
+// Uncomment the next line to see parameter decorator in action:
+// printReview(@parameterLogger rating: number): void {
