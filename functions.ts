@@ -55,6 +55,7 @@ export function PrintMovieInfo(movie: Movie) {
   console.log(`Director: ${movie.director}`);
 }
 
+// Function overloads - multiple signatures for the same function name
 export function GetBookTitles(author: string): string[];
 export function GetBookTitles(available: boolean): string[];
 export function GetBookTitles(bookProperty: string | boolean): string[] {
@@ -67,6 +68,7 @@ export function GetBookTitles(bookProperty: string | boolean): string[] {
   }
 }
 
+// Overloaded function with optional parameter
 export function GetMovieTitles(director: string): string[];
 export function GetMovieTitles(director: string, streaming: boolean): string[];
 export function GetMovieTitles(
@@ -92,11 +94,13 @@ export function ReleaseMessage(year: number): string {
   return `Year Released: ` + year;
 }
 
+// Arrow functions - concise function syntax
 export const squareit = (x: number) => x * x;
 export const adder = (a: number, b: number) => a + b;
 export const greeting = () => console.log("Hello, world!");
 export const LogMessage = (message: string) => console.log(message);
 
+// Object literal export - grouping related functions
 export const Utility = {
   GetAllMovies,
   GetReview,
